@@ -19,15 +19,13 @@ samples, guidance on mobile development, and a full API reference.
 ----
 
 ## Table of Contents
-1. [Introduction](#introduction)
-2. [Features](#features)
-3. [Getting Started](#getting-started)
-4. [Installation](#installation)
-5. [Usage](#usage)
-6. [Project Structure](#project-structure)
-7. [Additional Features](#additional-features)
-8. [References](#references)
-9. [License](#license)
+1. [Introduction](#Introduction)
+2. [Features](#Features)
+3. [Getting Started](#Getting-Started)
+4. [Installation](#Installation)
+5. [Project Structure](#Project-Structure)
+6. [Modifications](#Modifications)
+7. [References](#References)
 
 ---
 
@@ -62,9 +60,56 @@ To set up this project on your local machine, you’ll need to have Flutter inst
 
 3. **Set up Hive database**:
    ```bash
-      void main() async {
-       await Hive.initFlutter();
-       runApp(MyApp());
-      }
+   void main() async {
+   await Hive.initFlutter();
+   runApp(MyApp());
+   }
 4. **Run the application**:
    ```flutter run```
+
+5. **Project Structure**:
+   ```
+   lib/
+   ├── data/
+   │   └── hive_data_store.dart            # Manages Hive database setup and data storage
+   ├── extensions/
+   │   └── space_exs.dart                  # Custom extensions for spacing and layout
+   ├── models/
+   │   ├── task.dart                       # Task model definition
+   │   └── task.g.dart                     # Generated code for Hive task model
+   ├── utils/
+   │   ├── app_colors.dart                 # Color constants used in the app
+   │   ├── app_str.dart                    # String constants
+   │   ├── constants.dart                  # General constants
+   │   └── developer.dart                  # Development utilities
+   ├── view/
+   │   ├── home/
+   │   │   ├── components/                 # UI components for the home screen
+   │   │   │   ├── fab.dart                # Floating action button
+   │   │   │   ├── home_app_bar.dart       # Custom app bar for the home screen
+   │   │   │   └── slider_drawer.dart      # Navigation drawer component
+   │   │   ├── widgets/                    # Widgets used in the home screen
+   │   │   │   ├── data_record.dart        # Displays record details for tasks
+   │   │   │   ├── data_store.dart         # Widget to manage task storage
+   │   │   │   ├── details.dart            # Displays task details
+   │   │   │   ├── home_view.dart          # Main home screen view
+   │   │   │   ├── splash_view.dart        # Splash screen view
+   │   │   │   ├── task_view_appbar.dart   # App bar for task view screen
+   │   │   │   ├── task_view.dart          # Task view screen
+   │   │   │   └── task_widget.dart        # Widget for displaying a single task
+   │   ├── tasks/
+   │   │   ├── date_time_selection.dart    # Date and time picker for tasks
+   │   │   ├── rep_textfield.dart          # Reusable text field widget
+   │   │   ├── notifikasi.dart             # Notification management
+   │   │   └── record_detail_page.dart     # Page displaying task record details
+   └── main.dart                           # Main entry point of the application
+
+6. **Modifications**:
+
+   This project includes several modifications beyond the original tutorial:
+   - **Record Details**: Tracks additional metadata for each task, such as the creator, last modified time, and modification history.
+   - **Notifications**: Sends notifications when new tasks are added, helping users stay informed about updates.
+7. **References**:
+   ```
+   Youtube : https://www.youtube.com/watch?v=ACpq1B_R6dw&list=PLWhSmdyhZUVSZBXZUEUNQnEPZwrhzMz_H
+   GitHub  : https://github.com/AmirBayat0/ 
